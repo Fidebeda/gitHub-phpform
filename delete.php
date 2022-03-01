@@ -4,10 +4,10 @@
     Connection();
 
       // select all data
-      $query = "SELECT * FROM users"; 
+    $query = "SELECT * FROM users"; 
+    $result = mysqli_query($connection,$query);
 
-      $result = mysqli_query($connection,$query);
-
+    // delete data
       if(isset($_POST["submit"])){
         DeleteFun();
     }

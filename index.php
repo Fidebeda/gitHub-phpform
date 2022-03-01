@@ -17,14 +17,10 @@
         // connection
 
         include "mysql/db.php";
+        Connection();
         
-
-        $query = "SELECT * FROM users"; 
-
-        $result = mysqli_query($connection,$query);
-
-        if(!$result){
-            die("selhání".mysqli_error($connection));
+        if(isset($_POST["submit"])){
+            AddFun();
         }
         
     
@@ -55,16 +51,7 @@
         <input type="submit" name="submit" value="Odeslat">
     </form>
 
-    <?php
-
-        while($row = mysqli_fetch_assoc($result)){
-
-            echo "<pre>";
-            print_r($row);
-            echo "</pre>";
-        }
     
-    ?>
     
 </body>
 </html>

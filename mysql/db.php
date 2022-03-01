@@ -42,4 +42,19 @@ function DeleteFun(){
     }
 }
 
+function AddFun(){
+    global $connection;
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $query = "INSERT INTO users(username,password) VALUES('$username','$password')";
+
+    $result = mysqli_query($connection,$query);
+
+    if(!$result){
+        die("chyba");
+    }
+
+}
+
 ?>

@@ -5,13 +5,10 @@
 
     // select all data
     $query = "SELECT * FROM users"; 
-
     $result = mysqli_query($connection,$query);
 
-    if(!$result){
-        die("selhání".mysqli_error($connection));
-    }
 
+    // update data
     if(isset($_POST["submit"])){
         UpdateFun();
     }
