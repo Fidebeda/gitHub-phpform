@@ -16,13 +16,7 @@
 
         // connection
 
-        $connection = mysqli_connect("localhost", "root", "", "loginapp");
-
-        if($connection){
-            echo "jsme propojeni";
-        }   else{
-            die("uf");
-        }
+        include "mysql/db.php";
 
         $query = "SELECT * FROM users"; 
 
