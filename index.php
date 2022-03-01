@@ -1,18 +1,18 @@
 <?php 
 
-    if(isset($_POST["submit"])){
+    // if(isset($_POST["submit"])){
 
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+    //     $username = $_POST["username"];
+    //     $password = $_POST["password"];
 
-        if($username && $password){
-            echo $username;
-            echo "<br>";
-            echo $password;
+    //     if($username && $password){
+    //         echo $username;
+    //         echo "<br>";
+    //         echo $password;
 
-        } else{
-            echo "něco chybí";
-        }
+    //     } else{
+    //         echo "něco chybí";
+    //     }
 
         // connection
 
@@ -24,7 +24,7 @@
             die("uf");
         }
 
-        $query = "INSERT INTO users(username,password) VALUES('$username','$password')"; 
+        $query = "SELECT * FROM users"; 
 
         $result = mysqli_query($connection,$query);
 
@@ -32,7 +32,7 @@
             die("selhání".mysqli_error($connection));
         }
         
-    }
+    
 
 
 ?>
@@ -48,6 +48,10 @@
 </head>
 <body>
 
+        <!-- <pre>
+            Předformátovaný text.
+        </pre> -->
+
     <form action="index.php" method="post">
         <input type="text" name="username" placeholder="Uživatelské jméno">
         <br>
@@ -55,6 +59,17 @@
         <br>
         <input type="submit" name="submit" value="Odeslat">
     </form>
+
+    <?php
+
+        while($row = mysqli_fetch_assoc($result)){
+
+            echo "<pre>";
+            print_r($row);
+            echo "</pre>";
+        }
+    
+    ?>
     
 </body>
 </html>
