@@ -3,20 +3,18 @@
     include "mysql/db.php";
     Connection();
 
-    // select all data
-    $query = "SELECT * FROM users"; 
+      // select all data
+      $query = "SELECT * FROM users"; 
 
-    $result = mysqli_query($connection,$query);
+      $result = mysqli_query($connection,$query);
 
-    if(!$result){
-        die("selhání".mysqli_error($connection));
+      if(isset($_POST["submit"])){
+        DeleteFun();
     }
 
-    if(isset($_POST["submit"])){
-        UpdateFun();
-    }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,11 +22,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update</title>
+    <title>Delete data</title>
 </head>
 <body>
 
-<form action="update.php" method="post">
+<form action="delete.php" method="post">
         <input type="text" name="username" placeholder="Uživatelské jméno">
         <br>
         <input type="password" name="password" placeholder="Heslo">
@@ -43,8 +41,6 @@
              ?>
             
             
-
-
 
         </select>
 

@@ -27,4 +27,19 @@ function UpdateFun(){
         }
 }
 
+function DeleteFun(){
+    global $connection;
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $id = $_POST["id"];
+
+    $query2 = "DELETE FROM users WHERE id=$id";
+
+    $result2 = mysqli_query($connection,$query2);
+
+    if(!$result2){
+        die("dotaz selhal".mysqli_error($connection));
+    }
+}
+
 ?>
