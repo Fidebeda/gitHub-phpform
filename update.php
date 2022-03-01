@@ -1,6 +1,7 @@
 <?php 
     // connection
     include "mysql/db.php";
+    Connection();
 
     // select all data
     $query = "SELECT * FROM users"; 
@@ -12,17 +13,7 @@
     }
 
     if(isset($_POST["submit"])){
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $id = $_POST["id"];
-
-        $query2 = "UPDATE users SET username='$username', password='$password' WHERE id=$id ";
-
-        $result2 = mysqli_query($connection,$query2);
-
-        if(!$result2){
-            die("dotaz selhal".mysqli_error($connection));
-        }
+        UpdateFun();
     }
 
 ?>

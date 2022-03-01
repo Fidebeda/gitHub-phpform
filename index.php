@@ -17,6 +17,7 @@
         // connection
 
         include "mysql/db.php";
+        
 
         $query = "SELECT * FROM users"; 
 
