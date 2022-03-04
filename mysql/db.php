@@ -18,6 +18,9 @@ function UpdateFun(){
         $password = $_POST["password"];
         $id = $_POST["id"];
 
+        $username = mysqli_real_escape_string($connection,$username);
+        $password = mysqli_real_escape_string($connection,$password);
+
         $query2 = "UPDATE users SET username='$username', password='$password' WHERE id=$id ";
 
         $result2 = mysqli_query($connection,$query2);
@@ -33,6 +36,9 @@ function DeleteFun(){
     $password = $_POST["password"];
     $id = $_POST["id"];
 
+    $username = mysqli_real_escape_string($connection,$username);
+    $password = mysqli_real_escape_string($connection,$password);
+
     $query2 = "DELETE FROM users WHERE id=$id";
 
     $result2 = mysqli_query($connection,$query2);
@@ -46,6 +52,9 @@ function AddFun(){
     global $connection;
     $username = $_POST["username"];
     $password = $_POST["password"];
+
+    $username = mysqli_real_escape_string($connection,$username);
+    $password = mysqli_real_escape_string($connection,$password);
 
     $query = "INSERT INTO users(username,password) VALUES('$username','$password')";
 
