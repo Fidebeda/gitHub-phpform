@@ -56,6 +56,12 @@ function AddFun(){
     $username = mysqli_real_escape_string($connection,$username);
     $password = mysqli_real_escape_string($connection,$password);
 
+    // hash passwords
+    $hashformat = "$2y$10$";
+    $salt = "z23r56789c12s4lj789k12";
+    $hashformat_salt = $hashformat.$salt;
+    $password = crypt($password,$hashformat_salt);
+
     $query = "INSERT INTO users(username,password) VALUES('$username','$password')";
 
     $result = mysqli_query($connection,$query);
